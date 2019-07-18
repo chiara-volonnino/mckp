@@ -36,7 +36,8 @@ public class MultipleChoiceKnapsackProblem {
                 int profitLast = computeSolution.getProfit(k,classes[k] - 1, matrix[q], classes);
                 int profitCurrent = 0;
                 if (weight[k] <= q) {
-                    profitCurrent = profit[k] + computeSolution.getProfit( k,classes[k] - 1, matrix[q - weight[k]], classes);
+                    profitCurrent = profit[k] + computeSolution
+                            .getProfit( k,classes[k] - 1, matrix[q - weight[k]], classes);
                 }
                 matrix[q][k] = computeMaxProfit(profitLast, profitCurrent);
                 updateMaxProfit(matrix[q][k]);
@@ -44,6 +45,7 @@ public class MultipleChoiceKnapsackProblem {
             }
         }
         PrintMatrix.printMatrix(knapsackCapacity, items, matrix);
+        PrintMatrix.printResult(items, profit, weight, chosenItem(items, knapsackCapacity, solution, classes, matrix, weight));
     }
 
     private void updateMaxProfit(final int newProfit) {
@@ -52,5 +54,29 @@ public class MultipleChoiceKnapsackProblem {
 
     private int computeMaxProfit(final int profitLast, final int profitCurrent) {
         return Math.max(profitLast, profitCurrent);
+    }
+
+    private boolean[] chosenItem(final int item, final int knapsackCapacity, final boolean[][] solution, final int[] classes,
+                                 final int[][] matrix, final int[] weight) {
+        return isInSolution(item, knapsackCapacity, solution, classes, matrix, weight);
+    }
+
+    private boolean[] isInSolution(final int item, final int knapsackCapacity, final boolean[][] solution, final int[] classes,
+                           final int[][] matrix, final int[] weight) {
+        int lastSolution = 0;
+        boolean[] vectorOfSolution = new boolean[item + 1];
+        for (int k = item, q = knapsackCapacity; k > 0; k++) {
+            if(solution[q][k] && computeSolution.compute(item, k, q, classes, matrix)) {
+                if(computeSolution.checkClass(k, lastSolution, classes)) {
+                    continue;
+                }
+                q = q - weight[k];
+                lastSolution = classes[k];
+                vectorOfSolution[k] = true;
+            } else {
+                vectorOfSolution[k] = false;
+            }
+        }
+        return vectorOfSolution;
     }
 }

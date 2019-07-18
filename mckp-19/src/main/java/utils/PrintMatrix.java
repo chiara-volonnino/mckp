@@ -9,4 +9,19 @@ public class PrintMatrix {
             System.out.println();
         }
     }
+
+    public static void printResult(int items, int[] profit, int[] weight, boolean[] isChosen) {
+        StringBuilder result = new StringBuilder("Items chosen are: ");
+        int profitTot = 0;
+        int weightTot = 0;
+        for (int n = 1; n <= items; n++) {
+            if (isChosen[n]) {
+                result.append(n).append(" ");
+                profitTot += profit[n];
+                weightTot += weight[n];
+            }
+        }
+        result.append("with profit: ").append(profitTot).append(" and weight: ").append(weightTot);
+        System.out.println(result);
+    }
 }
