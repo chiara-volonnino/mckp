@@ -1,13 +1,22 @@
-#ifndef PRINT_MATRIX_H    // To make sure you don't declare the function more than once by including the header multiple times.
-#define PRINT_MATRIX_H
+#pragma once
 
-#include <algorithm>
-#include <iostream>
 #include <vector>
+#include <iostream>
+#include "stringbuilder.h"
 
-#define ARRAY_SIZE 200
+using namespace std;
 
-//template <size_t rows, size_t cols>
-void printMatrix(int knapsackCapacity, int items, int array[ARRAY_SIZE][ARRAY_SIZE]);
+namespace utils
+{
 
-#endif
+	class PrintMatrix
+	{
+	public:
+		static void printMatrix(int knapsackCapacity, int items, vector<vector<int>> &matrix);
+
+		static void printResult(int items, vector<int> &profit, vector<int> &weight, vector<int> &isChosen);
+
+		static void printTableOfResult(int items, vector<int> &profit, vector<int> &weight, vector<int> &classes, vector<int> &isChosen);
+	};
+
+}

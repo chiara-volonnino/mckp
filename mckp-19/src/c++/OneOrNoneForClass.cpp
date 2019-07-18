@@ -1,57 +1,44 @@
-#include <algorithm>
-#include <iostream>
-#include <vector>
-
 #include "OneOrNoneForClass.h"
-#include "PrintMatrix.h"
 
-// C++ directive to declare the use of name of standard library
 using namespace std;
-int countItem = 0;
-int matrix[ARRAY_SIZE][ARRAY_SIZE] = {};
 
-int max_profit(const vector<vector<int>>& weight,
-               const vector<vector<int>>& profit,
-               int knapsackCapacity) {
-    if (weight.empty())
-        return 0;
+namespace problem
+{
+	using ComputeSolutionImp = model::ComputeSolutionImp;
 
-    vector<int> profitLast(knapsackCapacity + 1, 0);
-    for (int i = 0; i < weight[0].size(); ++i) {
-        for(int k = weight[0].size(); k <= knapsackCapacity; ++k) {
-            if (weight[0][i] <= knapsackCapacity)
-                profitLast[weight[0][i]] = max(profitLast[weight[0][i]], profit[0][i]);    
-            //printf("k -- [%d]\t q -- [%d]\t class -- [%d]\t", i, k, 1);
-            //printf("profit tot----- [%d] \t", profitLast[weight[0][i]] = max(profitLast[weight[0][i]], profit[0][i]));
-            //printf("profit k----- [%d] \n", profit[0][i]);
-        }
-        ++countItem;
-    }
+	bool OneOrNoneForClass::checkClass(int const items, int const last, vector<int> &classes)
+	{
+		return classes[items] == last;
+	}
 
-    vector<int> profitCurrent(knapsackCapacity + 1);
-    for (int i = 1; i < weight.size(); ++i) {
-        // initialize vector with current value (init 0, and the the profit)  
-        fill(profitCurrent.begin(), profitCurrent.end(), 0);
-        for (int j = 0; j < weight[i].size(); ++j) {
-            for (int k = weight[i][j]; k <= knapsackCapacity; ++k) {
-                //printf("k -- [%d]\t q -- [%d]\t class -- [%d]\t", j, k, i+1);
-                if (profitLast[k - weight[i][j]] > 0)
-                    profitCurrent[k] = max(profitLast[k - weight[i][j]] + profit[i][j], profitCurrent[k]);
-                //printf("tot profit -------- [%d]\t", profitCurrent[k] = max(profitLast[k - weight[i][j]] + profit[i][j], profitCurrent[k]));
-                //printf("last profit ----- [%d] \t", profitLast[k - weight[i][j]] + profit[i][j]);
-                //printf("current value ----- [%d] \n", profitCurrent[k]);
-            }
-            ++countItem;
-        }
-        // swap value and re-build
-        swap(profitCurrent, profitLast);
-    }
-    
-    printMatrix(knapsackCapacity, countItem, matrix);
-    // for (int i = 0; i < profitLast.size(); i++)
-    //     {
-    //     printf("q: %d\t%d\n", i, profitLast[i]);
-    // }
+	bool OneOrNoneForClass::compute(int const items, int const object, int const q, vector<int> &classes, vector<vector<int>> &matrix)
+	{
+		int maxProfitForEachItem = 0;
+		for (int k = 1; k <= items; k++)
+		{
+			if (classes[k] == classes[object] && matrix[q][k] > maxProfitForEachItem)
+			{
+				maxProfitForEachItem = matrix[q][k];
+			}
+		}
+		return matrix[q][object] == maxProfitForEachItem;
+	}
 
-    return *max_element(profitLast.begin(), profitLast.end());
+	bool OneOrNoneForClass::getSolution(int const profitLast, int const profitCurrent)
+	{
+		return profitCurrent > profitLast;
+	}
+
+	int OneOrNoneForClass::getProfit(int const items, int const itemClass, vector<int> &knapsackCapacity, vector<int> &classes)
+	{
+		int maxProfit = 0;
+		for (int k = 1; k < items; k++)
+		{
+			if (classes[k] == itemClass && knapsackCapacity[k] > maxProfit)
+			{
+				maxProfit = knapsackCapacity[k];
+			}
+		}
+		return maxProfit;
+	}
 }

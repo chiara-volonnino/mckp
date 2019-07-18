@@ -1,15 +1,25 @@
-#ifndef ONE_OR_NONE_FOR_CLASS_H    // To make sure you don't declare the function more than once by including the header multiple times.
-#define ONE_OR_NONE_FOR_CLASS_H
+#pragma once
 
-#include <algorithm>
-#include <iostream>
+#include "ComputeSolutionImp.h"
 #include <vector>
 
-// C++ directive to declare the use of name of standard library
 using namespace std;
 
-int max_profit(const vector<vector<int>> &weight,
-               const vector<vector<int>> &profit,
-               int knapsackCapacity);
+namespace problem
+{
 
-#endif
+	using ComputeSolutionImp = model::ComputeSolutionImp;
+
+	class OneOrNoneForClass : public ComputeSolutionImp
+	{
+
+	public:
+		bool checkClass(int const items, int const last, vector<int> &classes) override;
+
+		bool compute(int const items, int const object, int const q, vector<int> &classes, vector<vector<int>> &matrix) override;
+
+		bool getSolution(int const profitLast, int const profitCurrent) override;
+
+		int getProfit(int const items, int const itemClass, vector<int> &knapsackCapacity, vector<int> &classes) override;
+	};
+}
