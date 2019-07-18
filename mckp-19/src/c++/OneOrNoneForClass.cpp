@@ -7,7 +7,7 @@
 // C++ directive to declare the use of name of standard library
 using namespace std;
 
-int max_value(const vector<vector<int>>& weight,
+int max_profit(const vector<vector<int>>& weight,
                const vector<vector<int>>& profit,
                int knapsackCapacity) {
     if (weight.empty())
