@@ -3,6 +3,7 @@
 #include <vector>
 
 #include "OneOrNoneForClass.h"
+#include "PrintMatrix.h"
 
 // C++ directive to declare the use of name of standard library
 using namespace std;
@@ -23,6 +24,9 @@ int max_profit(const vector<vector<int>>& weight,
         printf("profit k----- [%d] \n", profit[0][i]);
         }
     }
+
+    int matrix[10][10] = {1,3,5,6 ,8};
+    printMatrix(10, 10, matrix);
 
     vector<int> profitCurrent(knapsackCapacity + 1);
     for (int i = 1; i < weight.size(); ++i) {

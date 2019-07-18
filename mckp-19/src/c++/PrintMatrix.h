@@ -5,8 +5,9 @@
 #include <iostream>
 #include <vector>
 
+#define ARRAY_SIZE 10
 
-template <size_t rows, size_t cols>
-void printMatrix(int knapsackCapacity, int items, int profit[rows][cols]);
+//template <size_t rows, size_t cols>
+void printMatrix(int knapsackCapacity, int items, int array[ARRAY_SIZE][ARRAY_SIZE]);
 
 #endif
