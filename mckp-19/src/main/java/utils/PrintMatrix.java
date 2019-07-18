@@ -24,4 +24,11 @@ public class PrintMatrix {
         result.append("with profit: ").append(profitTot).append(" and weight: ").append(weightTot);
         System.out.println(result);
     }
+
+    public static void printTableOfResult(int items, int[] profit, int[] weight, int[] classes, boolean[] isChosen) {
+        System.out.println("item" + "\t" + "profit" + "\t" + "weight" + "\t" + "class" + "\t" + "chosen");
+        for (int k = 1; k <= items; k++) {
+            System.out.println(k + "\t\t" + profit[k] + "\t\t" + weight[k] + "\t\t" + classes[k] + "\t\t" + isChosen[k]);
+        }
+    }
 }

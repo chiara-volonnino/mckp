@@ -46,6 +46,8 @@ public class MultipleChoiceKnapsackProblem {
         }
         PrintMatrix.printMatrix(knapsackCapacity, items, matrix);
         PrintMatrix.printResult(items, profit, weight, chosenItem(items, knapsackCapacity, solution, classes, matrix, weight));
+        //Debug table
+        //PrintMatrix.printTableOfResult(items, profit, weight, classes, chosenItem(items, knapsackCapacity, solution, classes, matrix, weight));
     }
 
     private void updateMaxProfit(final int newProfit) {
@@ -65,7 +67,7 @@ public class MultipleChoiceKnapsackProblem {
                            final int[][] matrix, final int[] weight) {
         int lastSolution = 0;
         boolean[] vectorOfSolution = new boolean[item + 1];
-        for (int k = item, q = knapsackCapacity; k > 0; k++) {
+        for (int k = item, q = knapsackCapacity; k > 0; k--) {
             if(solution[q][k] && computeSolution.compute(item, k, q, classes, matrix)) {
                 if(computeSolution.checkClass(k, lastSolution, classes)) {
                     continue;
