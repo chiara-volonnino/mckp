@@ -22,7 +22,7 @@ public class OneOrNoneForClass extends ComputeSolutionImp {
 
     @Override
     public boolean getSolution(int profitLast, int profitCurrent) {
-        return false;
+        return profitCurrent > profitLast;
     }
 
     @Override
