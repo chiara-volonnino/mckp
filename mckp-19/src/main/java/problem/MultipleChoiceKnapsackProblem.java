@@ -11,6 +11,9 @@ public class MultipleChoiceKnapsackProblem {
         this.computeSolution = computeSolution;
     }
 
+    /**
+     *
+     */
     public void solveProblem() {
         int knapsackCapacity = computeSolution.getKnapsackCapacity();
         int[] profit = computeSolution.getItemProfit();
@@ -34,14 +37,18 @@ public class MultipleChoiceKnapsackProblem {
                 if (weight[k] <= q) {
                     profitCurrent = profit[k] + computeSolution.getProfit(classes[k] - 1, matrix[q - weight[k]], classes, k);
                 }
-                matrix[q][k] = Math.max(profitLast, profitCurrent);
+                matrix[q][k] = computeMaxProfit(profitLast, profitCurrent);
                 updateMaxProfit(matrix[q][k]);
                 solution[q][k] = computeSolution.getSolution(profitLast, profitCurrent);
             }
         }
     }
 
-    private void updateMaxProfit(int newProfit) {
+    private void updateMaxProfit(final int newProfit) {
         if (newProfit > maxProfit) maxProfit = newProfit;
+    }
+
+    private int computeMaxProfit(final int profitLast, final int profitCurrent) {
+        return Math.max(profitLast, profitCurrent);
     }
 }

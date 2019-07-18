@@ -6,12 +6,18 @@ public class OneOrNoneForClass extends ComputeSolutionImp {
 
     @Override
     public boolean checkClass(int items, int last, int[] classes) {
-        return false;
+        return classes[items] == last;
     }
 
     @Override
-    public boolean compute(int object, int weight, int[] classes, int[][] matrix, int items) {
-        return false;
+    public boolean compute(int object, int q, int[] classes, int[][] matrix, int items) {
+        int maxProfitForEachItem = 0;
+        for (int k = 1; k <= items; k++) {
+            if (classes[k] == classes[object] && matrix[q][k] > maxProfitForEachItem) {
+                maxProfitForEachItem = matrix[q][k];
+            }
+        }
+        return matrix[q][object] == maxProfitForEachItem;
     }
 
     @Override
