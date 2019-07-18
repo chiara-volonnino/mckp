@@ -2,15 +2,18 @@ package problem;
 
 import model.ComputeSolutionImp;
 
+/**
+ * 
+ */
 public class OneOrNoneForClass extends ComputeSolutionImp {
 
     @Override
-    public boolean checkClass(int items, int last, int[] classes) {
+    public boolean checkClass(final int items, final int last, final int[] classes) {
         return classes[items] == last;
     }
 
     @Override
-    public boolean compute(int object, int q, int[] classes, int[][] matrix, int items) {
+    public boolean compute(final int items, final int object, final int q, final int[] classes, final int[][] matrix) {
         int maxProfitForEachItem = 0;
         for (int k = 1; k <= items; k++) {
             if (classes[k] == classes[object] && matrix[q][k] > maxProfitForEachItem) {
@@ -21,12 +24,18 @@ public class OneOrNoneForClass extends ComputeSolutionImp {
     }
 
     @Override
-    public boolean getSolution(int profitLast, int profitCurrent) {
+    public boolean getSolution(final int profitLast, final int profitCurrent) {
         return profitCurrent > profitLast;
     }
 
     @Override
-    public int getProfit(int itemClass, int[] knapsackCapacity, int[] classes, int items) {
-        return 0;
+    public int getProfit(final int items, final int itemClass, final int[] knapsackCapacity, final int[] classes) {
+        int maxProfit = 0;
+        for (int k = 1; k < items; k++) {
+            if(classes[k] == itemClass && knapsackCapacity[k] > maxProfit) {
+                maxProfit = knapsackCapacity[k];
+            }
+        }
+        return maxProfit;
     }
 }

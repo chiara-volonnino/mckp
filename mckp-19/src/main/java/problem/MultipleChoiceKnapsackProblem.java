@@ -32,10 +32,10 @@ public class MultipleChoiceKnapsackProblem {
         // compute max profit for each object
         for (int q = 1; q <= knapsackCapacity; q++) {
             for (int k = 1; k <= items; k++) {
-                int profitLast = computeSolution.getProfit(classes[k] - 1, matrix[q], classes, k);
+                int profitLast = computeSolution.getProfit(k,classes[k] - 1, matrix[q], classes);
                 int profitCurrent = 0;
                 if (weight[k] <= q) {
-                    profitCurrent = profit[k] + computeSolution.getProfit(classes[k] - 1, matrix[q - weight[k]], classes, k);
+                    profitCurrent = profit[k] + computeSolution.getProfit( k,classes[k] - 1, matrix[q - weight[k]], classes);
                 }
                 matrix[q][k] = computeMaxProfit(profitLast, profitCurrent);
                 updateMaxProfit(matrix[q][k]);

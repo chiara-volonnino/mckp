@@ -2,11 +2,11 @@ package model;
 
 public interface ComputeSolution {
 
-    boolean checkClass(int items, int last, int[] classes);
+    boolean checkClass(final int items, final int last, final int[] classes);
 
-    boolean compute(int object, int q, int[] classes, int[][] matrix, int items);
+    boolean compute(final int items, final int object, final int q, final int[] classes, final int[][] matrix);
 
-    boolean getSolution(int profitLast, int profitCurrent);
+    boolean getSolution(final int profitLast, final int profitCurrent);
 
-    int getProfit(int itemClass, int[] knapsackCapacity, int[] classes, int items);
+    int getProfit(final int items, final int itemClass, final int[] knapsackCapacity, final int[] classes);
 }
