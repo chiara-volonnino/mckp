@@ -60,7 +60,7 @@ int main(int argc, char const* argv[]) {
     weights.push_back(weights_class_2);
     // weights.push_back(weights_class_3);
 
-    int knapsackCapacity = 50;
+    int knapsackCapacity = 10;
 
     printf("Solution with profit: %d\n", max_profit(weights, profits, knapsackCapacity));
     return 0;
