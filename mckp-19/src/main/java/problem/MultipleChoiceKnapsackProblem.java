@@ -1,6 +1,7 @@
 package problem;
 
 import model.ComputeSolutionImp;
+import utils.PrintMatrix;
 
 public class MultipleChoiceKnapsackProblem {
 
@@ -42,6 +43,7 @@ public class MultipleChoiceKnapsackProblem {
                 solution[q][k] = computeSolution.getSolution(profitLast, profitCurrent);
             }
         }
+        PrintMatrix.printMatrix(knapsackCapacity, items, matrix);
     }
 
     private void updateMaxProfit(final int newProfit) {
