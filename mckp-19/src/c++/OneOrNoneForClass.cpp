@@ -13,34 +13,38 @@ int max_profit(const vector<vector<int>>& weight,
     if (weight.empty())
         return 0;
 
-    vector<int> last(knapsackCapacity + 1, 0);
+    vector<int> profitLast(knapsackCapacity + 1, 0);
     for (int i = 1; i < weight[0].size(); ++i) {
-        if (weight[0][i] <= knapsackCapacity)
-            last[weight[0][i]] = max(last[weight[0][i]], profit[0][i]);    
-        //printf("value----- [%d] \n", last[weight[0][i]] = max(last[weight[0][i]], value[0][i]));
+        for(int k = weight[i].size(); k <= knapsackCapacity; ++k) {
+            if (weight[0][i] <= knapsackCapacity)
+            profitLast[weight[0][i]] = max(profitLast[weight[0][i]], profit[0][i]);    
+        printf("k -- [%d]\t q -- [%d]\t class -- [%d]\t", i, k, 0);
+        printf("profit----- [%d] \n", profitLast[weight[0][i]] = max(profitLast[weight[0][i]], profit[0][i]));
+        }
     }
 
-    vector<int> current(knapsackCapacity + 1);
+    vector<int> profitCurrent(knapsackCapacity + 1);
     for (int i = 1; i < weight.size(); ++i) {
         // initialize vector with current value (init 0, and the the profit)  
-        fill(current.begin(), current.end(), 0);
+        fill(profitCurrent.begin(), profitCurrent.end(), 0);
         for (int j = 0; j < weight[i].size(); ++j) {
             for (int k = weight[i][j]; k <= knapsackCapacity; ++k) {
-                printf("q----- [%d] \t",k);
-                if (last[k - weight[i][j]] > 0)
-                    current[k] = max(last[k - weight[i][j]] + profit[i][j], current[k]);
-                printf("last value ----- [%d] \t", last[k - weight[i][j]] + profit[i][j]);
-                printf("current value ----- [%d] \n", current[k]);
+                printf("k -- [%d]\t q -- [%d]\t class -- [%d]\t", j, k, i);
+                if (profitLast[k - weight[i][j]] > 0)
+                    profitCurrent[k] = max(profitLast[k - weight[i][j]] + profit[i][j], profitCurrent[k]);
+                printf("last value ----- [%d] \t", profitLast[k - weight[i][j]] + profit[i][j]);
+                printf("current value ----- [%d] \t", profitCurrent[k]);
+                printf("profit -------- [%d]\n", profitCurrent[k] = max(profitLast[k - weight[i][j]] + profit[i][j], profitCurrent[k]));
             }
         }
         // swap value and re-build
-        swap(current, last);
+        swap(profitCurrent, profitLast);
     }
     
-//    for (int i = 0; i < current.size(); i++)
-//    {
-//        printf("q: %d\t%d\n", i, last[i]);
-//    }
+    // for (int i = 0; i < profitLast.size(); i++)
+    //     {
+    //     printf("q: %d\t%d\n", i, profitLast[i]);
+    // }
 
-    return *max_element(last.begin(), last.end());
+    return *max_element(profitLast.begin(), profitLast.end());
 }

@@ -13,8 +13,5 @@ using namespace std;
 int max_profit(const vector<vector<int>> &weight,
                const vector<vector<int>> &profit,
                int knapsackCapacity);
-//int max_profit(std::vector<std::vector<int, std::allocator<int> >, std::allocator<std::vector<int, std::allocator<int> > > > weight, 
-//            std::vector<std::vector<int, std::allocator<int> >, std::allocator<std::vector<int, std::allocator<int> > > > profit, 
-//            int knapsackCapacity);
 
 #endif

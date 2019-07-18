@@ -37,15 +37,31 @@ int main(int argc, char const* argv[]) {
     weights_class_2.push_back(11);
     weights_class_2.push_back(5);
 
-    vector<vector<int>> values;
-    values.push_back(profit_class_1);
-    values.push_back(profit_class_2);
+    // vector<int> profit_class_3;
+    // profit_class_3.push_back(0);
+    // profit_class_3.push_back(12);
+    // profit_class_3.push_back(18);
+    // profit_class_3.push_back(20);
+    // profit_class_3.push_back(14);
+
+    // vector<int> weights_class_3;
+    // weights_class_3.push_back(0);
+    // weights_class_3.push_back(5);
+    // weights_class_3.push_back(14);
+    // weights_class_3.push_back(11);
+    // weights_class_3.push_back(5);
+
+    vector<vector<int>> profits;
+    profits.push_back(profit_class_1);
+    profits.push_back(profit_class_2);
+    // profits.push_back(profit_class_3);
     vector<vector<int>> weights;
     weights.push_back(weights_class_1);
     weights.push_back(weights_class_2);
+    // weights.push_back(weights_class_3);
 
     int knapsackCapacity = 50;
 
-    printf("Solution with profit: %d\n", max_profit(weights, values, knapsackCapacity));
+    printf("Solution with profit: %d\n", max_profit(weights, profits, knapsackCapacity));
     return 0;
 }
