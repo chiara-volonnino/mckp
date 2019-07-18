@@ -22,3 +22,7 @@ local.properties
 
 # Visual Studio Code
 *.vscode
+
+# C++
+*.out
+main
