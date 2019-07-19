@@ -2,7 +2,7 @@
 
 ## A Optimization Methods and Algorithms for Problem Solving
 
-https://www.unibo.it/it/didattica/insegnamenti/insegnamento/2018/384256
+https://www.unibo.it/en/teaching/course-unit-catalogue/course-unit/2018/384256
 
 ## Use Requirements
 - g++ compile 8.2.0
