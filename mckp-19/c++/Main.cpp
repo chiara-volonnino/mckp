@@ -4,6 +4,7 @@
 
 #include "MultipleChoiceKnapsackProblem.h"
 #include "OneOrNoneForClass.h"
+#include "Error.h"
 
 using namespace std;
 
@@ -15,5 +16,5 @@ int main(int argc, char const* argv[])
 	MultipleChoiceKnapsackProblem *multipleChoiceKnapsackProblem = new MultipleChoiceKnapsackProblem(new OneOrNoneForClass());
 	multipleChoiceKnapsackProblem->solveProblem();
 
-	return 0;
+	return EXIT_SUCCESS;
 }
