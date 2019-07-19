@@ -1,3 +1,9 @@
+/**
+ * This class is like interface for common method. In particular there are a  virtual function 
+ * (polymorphism), its a special type of function that, when called, resolves to the most-derived 
+ * version of the function that exists between the base and derived class. 
+ */
+
 #include <vector>
 
 // C++ directive to declare the use of name of standard library

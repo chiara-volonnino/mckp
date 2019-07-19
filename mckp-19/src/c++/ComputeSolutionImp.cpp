@@ -1,3 +1,7 @@
+/**
+ * This class that takes care of processing the input and managements its.
+ */
+
 #include "ComputeSolutionImp.h"
 
 // C++ directive to declare the use of name of standard library

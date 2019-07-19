@@ -1,3 +1,9 @@
+/**
+ * This class permit the choice of an element for each class. Then it deals 
+ * with implementing and managing the variant of the MCKP in which one can 
+ * choose or not an element by class.
+ */
+
 #include "OneOrNoneForClass.h"
 
 using namespace std;

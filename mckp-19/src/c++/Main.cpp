@@ -1,3 +1,7 @@
+/**
+ * Main class to run the project.
+ */
+
 #include "MultipleChoiceKnapsackProblem.h"
 #include "OneOrNoneForClass.h"
 

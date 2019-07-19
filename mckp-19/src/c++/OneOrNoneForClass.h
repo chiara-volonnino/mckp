@@ -1,3 +1,4 @@
+// include file.h once, and only once, in file.cpp. This is for incremented performance
 #pragma once
 
 #include "ComputeSolutionImp.h"

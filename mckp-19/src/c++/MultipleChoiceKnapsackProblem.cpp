@@ -1,3 +1,7 @@
+/**
+ * This class managements MCKP solution.
+ */
+
 #include <algorithm>
 #include <iostream>
 #include <vector>

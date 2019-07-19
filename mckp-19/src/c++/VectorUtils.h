@@ -1,3 +1,7 @@
+/**
+ * Utils class that helper class reproduces the array initialization.
+ */
+
 #include <algorithm>
 #include <iostream>
 #include <vector>

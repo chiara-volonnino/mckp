@@ -1,3 +1,8 @@
+/**
+ * Utils class which takes care of managing the writing on video of the d
+ * ifferent solutions.
+ */
+
 #include "PrintMatrix.h"
 
 using namespace std;
@@ -35,7 +40,8 @@ namespace utils
 		printf(" with profit: %d and weight: %d\n", profitTot, weightTot);
 	}
 
-	void PrintMatrix::printTableOfResult(int items, vector<int> &profit, vector<int> &weight, vector<int> &classes, const vector<int> &isChosen)
+	void PrintMatrix::printTableOfResult(int items, vector<int> &profit, vector<int> &weight, 
+											vector<int> &classes, const vector<int> &isChosen)
 	{
 		wcout << L"\nItem" << L"\t" << L"Profit" << L"\t" << L"Weight" << L"\t" << L"Class" << L"\t" << L"Chosen" << endl;
 		for (int k = 1; k <= items; k++)
