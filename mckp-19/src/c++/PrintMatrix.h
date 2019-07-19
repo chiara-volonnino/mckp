@@ -16,7 +16,7 @@ namespace utils
 
 		static void printResult(int items, vector<int> &profit, vector<int> &weight, const vector<int> &isChosen);
 
-		static void printTableOfResult(int items, vector<int> &profit, vector<int> &weight, vector<int> &classes, vector<int> &isChosen);
+		static void printTableOfResult(int items, vector<int> &profit, vector<int> &weight, vector<int> &classes, const vector<int> &isChosen);
 	};
 
 }

@@ -52,12 +52,10 @@ namespace problem
 				solution[q][k] = computeSolution->getSolution(profitLast, profitCurrent);
 			}
 		}
-		PrintMatrix::printMatrix(knapsackCapacity, items, matrix);
 		
-		//printf(isInSolution(items, knapsackCapacity, solution, classes, matrix, weight));
+		PrintMatrix::printMatrix(knapsackCapacity, items, matrix);
+		PrintMatrix::printTableOfResult(items, profit, weight, classes, isInSolution(items, knapsackCapacity, solution, classes, matrix, weight));
 		PrintMatrix::printResult(items, profit, weight, isInSolution(items, knapsackCapacity, solution, classes, matrix, weight));
-		//Debug table
-		//PrintMatrix::printTableOfResult(items, profit, weight, classes, isInSolution(items, knapsackCapacity, solution, classes, matrix, weight));
 	}
 
 	void MultipleChoiceKnapsackProblem::updateMaxProfit(int const newProfit)

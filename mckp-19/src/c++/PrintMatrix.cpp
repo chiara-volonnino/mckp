@@ -20,27 +20,27 @@ namespace utils
 
 	void PrintMatrix::printResult(int items, vector<int> &profit, vector<int> &weight, const vector<int> &isChosen)
 	{
-		vector<int> item;
+		printf("Items chosen are: ");
 		int profitTot = 0;
 		int weightTot = 0;
 		for (int n = 1; n <= items; n++)
 		{
 			if (isChosen[n] == 1)
 			{
-				item.push_back(n);
+				printf("%d, ", n);
 				profitTot += profit[n];
 				weightTot += weight[n];
 			}
 		}
-		wcout <<  printf("Items chosen are: with profit: %d and weight: %d", profitTot, weightTot) << endl;
+		printf(" with profit: %d and weight: %d\n", profitTot, weightTot);
 	}
 
-	void PrintMatrix::printTableOfResult(int items, vector<int> &profit, vector<int> &weight, vector<int> &classes, vector<int> &isChosen)
+	void PrintMatrix::printTableOfResult(int items, vector<int> &profit, vector<int> &weight, vector<int> &classes, const vector<int> &isChosen)
 	{
-		wcout << L"item" << L"\t" << L"profit" << L"\t" << L"weight" << L"\t" << L"class" << L"\t" << L"chosen" << endl;
+		wcout << L"\nItem" << L"\t" << L"Profit" << L"\t" << L"Weight" << L"\t" << L"Class" << L"\t" << L"Chosen" << endl;
 		for (int k = 1; k <= items; k++)
 		{
-			wcout << k << L"\t\t" << profit[k] << L"\t\t" << weight[k] << L"\t\t" << classes[k] << L"\t\t" << isChosen[k] << endl;
+			wcout << k << L"\t" << profit[k] << L"\t" << weight[k] << L"\t" << classes[k] << L"\t" << isChosen[k] << L"\n" << endl;
 		}
 	}
 }
