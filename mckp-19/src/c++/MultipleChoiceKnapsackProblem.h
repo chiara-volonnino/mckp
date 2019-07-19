@@ -19,16 +19,9 @@ namespace problem
 		int maxProfit = 0;
 
 	public:
-		// virtual ~MultipleChoiceKnapsackProblem()
-		// {
-		// 	delete computeSolution;
-		// }
-
+	
 		MultipleChoiceKnapsackProblem(ComputeSolutionImp *const computeSolution);
 
-		/**
-		 *
-		 */
 		virtual void solveProblem();
 
 	private:
@@ -36,9 +29,8 @@ namespace problem
 
 		int computeMaxProfit(int const profitLast, int const profitCurrent);
 
-		vector<bool> chosenItem(int const item, int const knapsackCapacity, vector<vector<bool>> &solution, vector<int> &classes, vector<vector<int>> &matrix, vector<int> &weight);
-
-		vector<int> isInSolution(int const item, int const knapsackCapacity, vector<vector<bool>> &solution, vector<int> &classes, vector<vector<int>> &matrix, vector<int> &weight);
+		vector<int> isInSolution(int const item, int const knapsackCapacity, const vector<vector<bool>> &solution, 
+									vector<int> &classes, vector<vector<int>> &matrix, const vector<int> &weight);
 	};
 
 }

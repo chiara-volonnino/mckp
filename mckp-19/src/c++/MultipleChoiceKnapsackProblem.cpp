@@ -27,11 +27,7 @@ namespace problem
 		vector<int> classes = computeSolution->getItemClass();
 
 		int items = profit.size() - 1;
-//JAVA TO C++ CONVERTER NOTE: The following call to the 'RectangularVectors' helper class reproduces the rectangular array initialization that is automatic in Java:
-//ORIGINAL LINE: int[][] matrix = new int[knapsackCapacity + 1][items + 1];
 		vector<vector<int>> matrix = RectangularVectors::RectangularIntVector(knapsackCapacity + 1, items + 1);
-//JAVA TO C++ CONVERTER NOTE: The following call to the 'RectangularVectors' helper class reproduces the rectangular array initialization that is automatic in Java:
-//ORIGINAL LINE: boolean[][] solution = new boolean[knapsackCapacity + 1][items + 1];
 		vector<vector<bool>> solution = RectangularVectors::RectangularBoolVector(knapsackCapacity + 1, items + 1);
 
 		// Define q number in table
@@ -58,10 +54,10 @@ namespace problem
 		}
 		PrintMatrix::printMatrix(knapsackCapacity, items, matrix);
 		
-		//printf(chosenItem(items, knapsackCapacity, solution, classes, matrix, weight));
-		//PrintMatrix::printResult(items, profit, weight, isInSolution(items, knapsackCapacity, solution, classes, matrix, weight));
+		//printf(isInSolution(items, knapsackCapacity, solution, classes, matrix, weight));
+		PrintMatrix::printResult(items, profit, weight, isInSolution(items, knapsackCapacity, solution, classes, matrix, weight));
 		//Debug table
-		//PrintMatrix::printTableOfResult(items, profit, weight, classes, chosenItem(items, knapsackCapacity, solution, classes, matrix, weight));
+		//PrintMatrix::printTableOfResult(items, profit, weight, classes, isInSolution(items, knapsackCapacity, solution, classes, matrix, weight));
 	}
 
 	void MultipleChoiceKnapsackProblem::updateMaxProfit(int const newProfit)
@@ -77,7 +73,8 @@ namespace problem
 		return max(profitLast, profitCurrent);
 	}
 
-	vector<int> MultipleChoiceKnapsackProblem::isInSolution(int const item, int const knapsackCapacity, vector<vector<bool>> &solution, vector<int> &classes, vector<vector<int>> &matrix, vector<int> &weight)
+	vector<int> MultipleChoiceKnapsackProblem::isInSolution(int const item, int const knapsackCapacity, const vector<vector<bool>> &solution, 
+																vector<int> &classes, vector<vector<int>> &matrix, const vector<int> &weight)
 	{
 		int lastSolution = 0;
 		vector<int> vectorOfSolution(item + 1);

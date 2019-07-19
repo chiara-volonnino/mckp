@@ -18,24 +18,21 @@ namespace utils
 		}
 	}
 
-	void PrintMatrix::printResult(int items, vector<int> &profit, vector<int> &weight, vector<int> &isChosen)
+	void PrintMatrix::printResult(int items, vector<int> &profit, vector<int> &weight, const vector<int> &isChosen)
 	{
-		StringBuilder *result = new StringBuilder(L"Items chosen are: ");
+		vector<int> item;
 		int profitTot = 0;
 		int weightTot = 0;
 		for (int n = 1; n <= items; n++)
 		{
-			if (isChosen[n] == 0)
+			if (isChosen[n] == 1)
 			{
-				result->append(n)->append(L" ");
+				item.push_back(n);
 				profitTot += profit[n];
 				weightTot += weight[n];
 			}
 		}
-		result->append(L"with profit: ")->append(profitTot)->append(L" and weight: ")->append(weightTot);
-		wcout << result << endl;
-
-		delete result;
+		wcout <<  printf("Items chosen are: with profit: %d and weight: %d", profitTot, weightTot) << endl;
 	}
 
 	void PrintMatrix::printTableOfResult(int items, vector<int> &profit, vector<int> &weight, vector<int> &classes, vector<int> &isChosen)
