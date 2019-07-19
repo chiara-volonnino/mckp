@@ -1,4 +1,4 @@
-#pragma once
+#pragma once // include file.h once, and only once, in file.cpp. This is for incremented performance
 
 #include <vector>
 #include <iostream>

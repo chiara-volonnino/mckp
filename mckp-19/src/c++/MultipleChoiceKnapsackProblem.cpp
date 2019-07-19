@@ -5,7 +5,7 @@
 #include "MultipleChoiceKnapsackProblem.h"
 #include "ComputeSolutionImp.h"
 #include "PrintMatrix.h"
-#include "RectangularVectors.h"
+#include "VectorUtils.h"
 
 using namespace std;
 
@@ -27,8 +27,8 @@ namespace problem
 		vector<int> classes = computeSolution->getItemClass();
 
 		int items = profit.size() - 1;
-		vector<vector<int>> matrix = RectangularVectors::RectangularIntVector(knapsackCapacity + 1, items + 1);
-		vector<vector<bool>> solution = RectangularVectors::RectangularBoolVector(knapsackCapacity + 1, items + 1);
+		vector<vector<int>> matrix = VectorUtils::IntVector(knapsackCapacity + 1, items + 1);
+		vector<vector<bool>> solution = VectorUtils::BoolVector(knapsackCapacity + 1, items + 1);
 
 		// Define q number in table
 		for (int q = 0; q <= knapsackCapacity; q++)

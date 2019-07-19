@@ -5,10 +5,10 @@
 // C++ directive to declare the use of name of standard library
 using namespace std;
 
-class RectangularVectors
+class VectorUtils
 {
 public:
-    static vector<vector<int>> RectangularIntVector(int size1, int size2)
+    static vector<vector<int>> IntVector(int size1, int size2)
     {
         vector<vector<int>> newVector(size1);
         for (int vector1 = 0; vector1 < size1; vector1++)
@@ -19,7 +19,7 @@ public:
         return newVector;
     }
 
-    static vector<vector<bool>> RectangularBoolVector(int size1, int size2)
+    static vector<vector<bool>> BoolVector(int size1, int size2)
     {
         vector<vector<bool>> newVector(size1);
         for (int vector1 = 0; vector1 < size1; vector1++)

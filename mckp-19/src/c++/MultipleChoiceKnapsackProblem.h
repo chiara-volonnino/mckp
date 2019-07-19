@@ -1,7 +1,8 @@
-#pragma once
+#pragma once // include file.h once, and only once, in file.cpp. This is for incremented performance
 
 #include <vector>
 
+// C++ directive to declare the use of name of standard library
 using namespace std;
 
 namespace model { class ComputeSolutionImp; }

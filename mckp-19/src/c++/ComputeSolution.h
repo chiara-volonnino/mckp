@@ -1,7 +1,6 @@
-#pragma once
-
 #include <vector>
 
+// C++ directive to declare the use of name of standard library
 using namespace std;
 
 namespace model

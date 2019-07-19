@@ -1,4 +1,3 @@
-#include "Main.h"
 #include "MultipleChoiceKnapsackProblem.h"
 #include "OneOrNoneForClass.h"
 
@@ -12,6 +11,5 @@ int main(int argc, char const* argv[])
 	MultipleChoiceKnapsackProblem *multipleChoiceKnapsackProblem = new MultipleChoiceKnapsackProblem(new OneOrNoneForClass());
 	multipleChoiceKnapsackProblem->solveProblem();
 
-	//delete multipleChoiceKnapsackProblem;
 	return 0;
 }
