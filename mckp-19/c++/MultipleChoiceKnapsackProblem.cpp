@@ -10,11 +10,14 @@
 #include "ComputeSolutionImp.h"
 #include "PrintMatrix.h"
 #include "VectorUtils.h"
+#include "Clock.h"
 
 using namespace std;
 
 namespace problem
 {
+	//clock_t time_req;
+
 	using ComputeSolutionImp = model::ComputeSolutionImp;
 	using PrintMatrix = utils::PrintMatrix;
 
@@ -22,9 +25,10 @@ namespace problem
 	{
 		this->computeSolution = computeSolution;
 	}
-
+	
 	void MultipleChoiceKnapsackProblem::solveProblem()
 	{
+		clock_t time_req = clock();
 		int knapsackCapacity = computeSolution->getKnapsackCapacity();
 		vector<int> profit = computeSolution->getItemProfit();
 		vector<int> weight = computeSolution->getItemWeight();
@@ -56,7 +60,9 @@ namespace problem
 				solution[q][k] = computeSolution->getSolution(profitLast, profitCurrent);
 			}
 		}
-		
+
+		time_req = clock() - time_req;
+    	cout << "Compute MCKP (without printer) in " << (float)time_req/CLOCKS_PER_SEC << " seconds\n" << endl;
 		PrintMatrix::printMatrix(knapsackCapacity, items, matrix);
 		PrintMatrix::printTableOfResult(items, profit, weight, classes, isInSolution(items, knapsackCapacity, solution, classes, matrix, weight));
 		PrintMatrix::printResult(items, profit, weight, isInSolution(items, knapsackCapacity, solution, classes, matrix, weight));

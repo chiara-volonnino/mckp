@@ -12,10 +12,10 @@ namespace model
 
 	ComputeSolutionImp::ComputeSolutionImp()
 	{
-		this->knapsackCapacity = 15;
-		this->profit = vector<int>{0, 15, 11, 5, 8, 12, 18, 20, 14};
-		this->weight = vector<int>{0, 8, 4, 4, 3, 5, 14, 11, 5};
-		this->classes = vector<int>{0, 1, 1, 1, 1, 2, 2, 2, 2};
+		this->knapsackCapacity = 50;
+		this->profit = vector<int>{0, 15, 11, 5, 8, 12, 18, 20, 14 , 5, 30, 5};
+		this->weight = vector<int>{0, 8, 4, 4, 3, 5, 14, 11, 5, 3, 20, 10};
+		this->classes = vector<int>{0, 1, 1, 1, 1, 2, 2, 2, 2, 3, 3, 4};
 	}
 
 	int ComputeSolutionImp::getKnapsackCapacity()
