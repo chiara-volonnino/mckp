@@ -12,10 +12,14 @@ The multiple-choice knapsack problem (MCKP) is a generalization of the ordinary 
 
 ## Build project [script: work in progress]
 - **Dependences**:
+`
 g++ -std=c++11 Main.cpp ComputeSolution.h ComputeSolutionImp.cpp MultipleChoiceKnapsackProblem.cpp OneOrNoneForClass.cpp PrintMatrix.cpp UtilsVectors.h
+`
 
 - **Build**:
+`
 g++ -o main Main.cpp ComputeSolution.h ComputeSolutionImp.cpp MultipleChoiceKnapsackProblem.cpp OneOrNoneForClass.cpp PrintMatrix.cpp UtilsVectors.h
+`
 
 ## Run project 
 It is possible to start the computation from the command line with the command:
