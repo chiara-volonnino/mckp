@@ -1,11 +1,11 @@
 # MCKP - Multiple-Choice Knapsack Problem
 
-## A Optimization Methods and Algorithms for Problem Solving
-
 Project for the course of "[Problem Solving: Optimization Methods and Algorithms](https://www.unibo.it/en/teaching/course-unit-catalogue/course-unit/2018/384256)" AA.2018/2019
 
 ## About the project 
 The multiple-choice knapsack problem (MCKP) is a generalization of the ordinary knapsack problem, where the set of items is partitioned into classes. The binary choice of taking an item is replaced by the selection of exactly one item out of each class of items.
+
+Solution implemented by using **dinamic programming**.
 
 ## Use Requirements
 - g++ compile 8.2.0
